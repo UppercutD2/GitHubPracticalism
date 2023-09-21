@@ -1,0 +1,25 @@
+/////////////////////////////git basic - Commands///////////////////////////////////////
+git init     ||  create local repository
+git config --global user.email "Email@gmail.com" || setup users email
+git config --global user.name "Name"   || setup users name
+git add  "Filename"     ||  add file to tracked stage
+git commit -m "Message"   || apply changes as commit and attach commit name with message 
+
+/////////////////git diff - SECTION////////////////////////////////////////////////
+git diff || shows difference between current UNTRACKED files and last Commit!
+git diff --staged   || shows difference between current TRACKED files and last Commit!
+git diff COMMIT_ID   || shows difference between current COMMIT Files and selected COMMIT_ID files.
+
+//////////////git reset - SECTION//////////////////////////////////////////////////
+(HEAD ) -> shows actual, current version of Project. Branch and Commit
+git reset HEAD^^  {(or)}  git reset HEAD~2  || move HEAD two{(^^) or (~2)}  commits previously. 
+***************************************************
+            |->:   --soft:   ->|          
+git reset:--|->:   --mixed:  ->|--: COMMIT_ID - || 3 level of severity to reset local repository 
+            |->:   --hard:   ->|
+***************************************************
+git reset --hard COMMIT_ID  || rollback to COMMIT_ID state , and Deletes Commits post (COMMIT_ID)
+git reset --mixed COMMIT_ID || rollback to COMMIT_ID , and puts Commits post (COMMIT_ID) to untracking(unstaged) zone.
+git reset --soft COMMIT_ID  || rollback to COMMIT_ID , and keeps Commits post (COMMIT_ID) in tracking(staged) zone.
+
+git reset = git reset --mixed HEAD  || default value of reset -> {--mixed} , COMMIT_ID -> {HEAD}
